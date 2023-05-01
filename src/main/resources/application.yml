@@ -1,0 +1,36 @@
+
+server:
+  port: 8089
+
+spring:
+  datasource:
+    hikari:
+      connection-timeout: 60000
+      minimum-idle: 15
+      maximum-pool-size: 100
+      idle-timeout: 10000
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/store
+    name: store
+    username: mahadi
+    password: test123
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    open-in-view: false
+
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
